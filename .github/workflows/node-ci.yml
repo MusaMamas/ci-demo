@@ -25,6 +25,6 @@ jobs:
         run: npm run build
       - name: Render deployment
         env:
-          deploy_url: ${{ secrets.DEPLOY_URL }}
+          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
         run: |
           curl "$deploy_url" 
