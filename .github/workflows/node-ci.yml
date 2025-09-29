@@ -24,12 +24,12 @@ jobs:
       - name: Build project
         run: npm run build
 
-    Render-deploy:
-      runs-on: ubuntu-latest
-      needs: Node-Ci
-      steps:
-      - name: Render deployment
-        env:
-          deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
-        run: |
-          curl "$deploy_url" 
+  Render-deploy:
+    runs-on: ubuntu-latest
+    needs: Node-Ci
+    steps:
+    - name: Render deployment
+      env:
+        deploy_url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      run: |
+        curl "$deploy_url" 
