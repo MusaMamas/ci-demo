@@ -1,10 +1,16 @@
 name: Render Deployment
 on:
   workflow_dispatch:
+    input:
+      environment:
+        description: 'Select environment'
+        required: true
+        type: environment
 
 jobs:
   Render-deploy:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
     steps:
       - name: Render deployment
         env:
